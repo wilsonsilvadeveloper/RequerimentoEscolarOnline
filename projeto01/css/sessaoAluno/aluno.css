@@ -1,0 +1,227 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    color: white;
+}
+
+main form {
+    width: 100%;
+}
+
+main form > section.infoAluno {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main form > section.infoAluno p {
+    font-size: 1.2rem;
+}
+
+main form > section.selecionarRequerimento, main form > section.motivoRequerimento {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+main form > section.selecionarRequerimento > section, main form > section.motivoRequerimento > section {
+    width: 50%;
+    min-width: 400px;
+    max-width: 800px;
+    text-align: center;
+}
+
+main form > section.selecionarRequerimento  select, main form > section.motivoRequerimento  select{
+    width: 200px;
+    height: 25px;
+    border: 1px solid black;
+    margin-left: 8px;
+    display: inline-block;
+}
+
+main form section.motivoRequerimento {
+    display: none;
+}
+
+main form section.documentacao, input[type="file"]{
+    margin-top: 16px;
+}
+
+main form > section.selecionaDiciplina {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-top: 1px solid gray;
+    text-align: center;
+}
+
+main form > section.selecionaDiciplina > div {
+    margin: 2%;
+    display: inline-block;
+}
+
+main form > section.selecionaDiciplina > div > div {
+    width: 20%;
+    min-width: 300px;
+    max-width: 400px;
+    height: 85px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid black;
+    text-align: left;
+    transition: 500ms;
+    cursor: pointer;
+    color: green;
+}
+
+main form > section.selecionaDiciplina > div > div:hover {
+    background-color: rgba(187, 187, 187,0.3);
+    border-radius: 8px;
+}
+
+main form > section.selecionaDiciplina #codDiciplina {
+    text-align: center;
+    margin: 6px 0;
+}
+
+main form > section.selecionaDiciplina #enviarRequerimento {
+    display: block;
+    width: 280px;
+    height: 35px;
+    margin:  10px auto;
+    background-color: rgba(187, 187, 187,0.3);
+    border-radius: 8px;
+    color: black;
+    font-size: 18px;
+    font-weight: 100;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+main form > section.selecionaDiciplina #enviarRequerimento:hover {
+    background-color: rgba(187, 187, 187,0.5);
+    transform: scale(0.9);
+}
+
+.selecionado {
+    background-color: rgba(21, 180, 21, 0.8) !important;
+    color: black !important;
+}
+
+section.statusSolicitacao {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    min-width: 300px;
+    max-height: 600px;
+    height: 200px;
+    padding: 14px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: abreTelaStatus 1s  500ms 1 both;
+    z-index: 1;
+}
+
+@keyframes abreTelaStatus {
+    0% {
+        top: -200px;
+        left: 50%;
+    } 100% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+section.statusSolicitacao img {
+    width: 80px;
+}
+
+section.statusSolicitacao p {
+    margin-top: 14px;
+}
+
+section.statusSolicitacao button {
+    position: absolute;
+    right: 10px;    
+    top: 10px;
+    width: 30px;
+    height: 20px;
+    background-color: gray;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+section.listaSolicitacoes {
+    width: 100%;
+    padding: 20px;
+    display: none;
+}
+
+section.listaSolicitacoes h3 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+section.listaSolicitacoes table {
+    width: 90%;
+    min-width: 800px;
+    max-width: 1280px;
+    height: auto;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+section.listaSolicitacoes table th, section.listaSolicitacoes table td {
+    border: 1px solid gray;
+    text-align: center;
+    padding: 6px;
+}
+
+section.listaSolicitacoes td:last-child {
+    border: none;
+}
+
+section.listaSolicitacoes button img {
+    width: 28px;
+}
+
+section.listaSolicitacoes button {
+    cursor: pointer;
+    background-color: transparent;
+}

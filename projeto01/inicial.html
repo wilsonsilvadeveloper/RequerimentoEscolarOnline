@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicial</title>
+    <link rel="stylesheet" href="css/inicial.css" />
+  </head>
+  <body>
+    <section class="container">
+      <div class="container-div">
+        <h1>Você é?</h1>
+        <div>
+          <button onclick="loginAluno()">
+            Aluno
+          </button>
+          <button onclick="loginProfessor()">
+            Professor
+          </button>
+        </div>
+      </div>
+
+      <div class="form-login-aluno form-login">
+        <form>
+            <h2>Complete os campos abaixo</h2>
+          <label for="matricula">Matricula</label>
+          <input
+            type="number"
+            name="matricula"
+            class="input"
+            placeholder="Insira o numero da sua matricula"
+            maxlength="8"
+            required
+          />
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            name="senha"
+            class="input"
+            placeholder="Insira a sua senha"
+            required
+          />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+
+      <div class="form-login-professor form-login">
+        <form>
+            <h2>Complete os campos abaixo</h2>
+            <label for="codigo">Codigo</label>
+            <input
+                type="number"
+                name="codigo"
+                class="input"
+                placeholder="Insira o seu codigo"
+            />
+
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            name="senha"
+            class="input"
+            placeholder="Inseri a sua senha"
+          />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
+
+<script>
+  function loginAluno(){
+    let loginAluno = document.querySelector('.form-login-aluno')
+    loginAluno.style.display = 'block';
+  }
+
+  function loginProfessor(){
+    let loginProfessor = document.querySelector('.form-login-professor')
+    loginProfessor.style.display = 'block';
+  }
+</script>
+
+<script src="js/sessaoAluno/login.js"></script>
