@@ -1,0 +1,202 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+
+html, body {
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.6em;
+}
+
+main form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+main form fieldset.grupo1 {
+    border: none;
+}
+
+main form legend {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+}
+
+main form div.dadosAluno {
+    display: flex;
+    flex-direction: row;
+}
+
+main form div.dadosAluno .label {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    padding-left: 6px;
+    border: 1px solid gray;
+}
+
+main form div.dadosAluno input {
+    width: 100%;
+    height: 40px;
+    padding-left: 8px;
+    font-size: 18px;
+    outline: none;
+}
+
+main form fieldset.grupo2 {
+   display: flex;
+   flex-direction: row;
+   margin-top: 10px;
+   padding-top: 8px;
+}
+
+/*main form fieldset.grupo2 > div > div{
+    border: 1px solid black;
+}*/
+
+main form fieldset.grupo2 >  div {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% /2);
+    height: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+
+main form fieldset.grupo2 >  div > div {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+main form fieldset.grupo2 >  div > div  input{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    padding-left: 8px;
+    font-size: 16px;
+}
+
+main form fieldset.grupo3 {
+    margin-top: 10px;
+    border: none;
+}
+
+main form fieldset.grupo3 legend{
+    display: block;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+main form fieldset.grupo3 > div > div {
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid gray;
+}
+
+main form fieldset.grupo3 input {
+    margin: 10px;
+}
+
+main form fieldset.grupo3 textarea {
+    width: 60%;
+    min-height: 100px;
+    max-width: 800px;
+    height: 100px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+main form fieldset.grupo3 input#inputDescricao::placeholder {
+    vertical-align: text-top;
+}
+
+main form button {
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+main form p {
+    text-align: center;
+}
+
+section.statusSolicitacao {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    min-width: 300px;
+    max-height: 600px;
+    height: 200px;
+    padding: 14px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: abreTelaStatus 1s  500ms 1 both;
+    z-index: 1;
+}
+
+@keyframes abreTelaStatus {
+    0% {
+        top: -200px;
+        left: 50%;
+    } 100% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+section.statusSolicitacao img {
+    width: 80px;
+}
+
+section.statusSolicitacao p {
+    margin-top: 14px;
+}
+
+section.statusSolicitacao button {
+    position: absolute;
+    right: 10px;    
+    top: 10px;
+    width: 30px;
+    height: 20px;
+    background-color: gray;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}

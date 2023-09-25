@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Area do professor</title>
+    <link rel="stylesheet" href="../../css/sessaoProfessor/professor.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Verificar Solicitações</h1>
+    </header>
+
+    <main>
+        <section class="container">
+            <section class="listaSolicitacoes">
+                <h3>Lista de Solicitações</h3>
+                <table class="tabelaSolicitacoes">
+                  
+                </table>
+              </section>
+
+              <section class="modal">
+                <button type="button"><img src="../../img/fechar.png" alt="fechar modal" onclick="fecharModal()"></button>
+                <section class="editarSolicitacaoAluno">
+                    <section>
+                        <p id="nomeAluno"></p>
+                        <p id="emailAluno"></p>
+                        <p id="cursoAluno"></p>
+                        <p id="turmaAluno"></p>
+                        <p id="disciplina"></p>
+                        <p id="nomeProfessor"></p>
+                        <p id="statusSolicitacao"></p>
+                        <p id="dataSolicitacao"></p>
+                        <form class="form">
+                            
+                        </form>
+                    </section>
+                </section>
+              </section>
+
+              <section class="statusSolicitacao">
+                
+              </section>
+
+              <section class="sem_solicitacoes">
+                <p>Sem solicitações encontradas no momento....</p>
+                <img src="../../img/pasta-vazia.png" alt="sem solicitações">
+              </section>
+        </section>
+    </main>
 </body>
 </html>
+<script src="../../js/sessaoAluno/telaStatus.js"></script>
+<script src="../../js/sessaoProfessor/atualizaInfoAluno.js"></script>
+<script src="../../js/converteData.js"></script>
+<script src="../../js/sessaoAluno/imprimiSolicitacoes.js"></script>
+<script src="../../js/sessaoAluno/buscaSolicitcoes.js"></script>

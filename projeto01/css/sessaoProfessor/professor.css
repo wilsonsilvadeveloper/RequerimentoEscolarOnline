@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+
+html, body {
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    color: white;
+}
+
+section.listaSolicitacoes {
+    width: 100%;
+    padding: 20px;
+    display: none;
+    overflow-x: scroll;
+    z-index: 1;
+}
+
+section.listaSolicitacoes h3 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+section.listaSolicitacoes table {
+    width: 100%;
+    min-width: 1200px;
+    max-width: 1920px;
+    height: auto;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+section.listaSolicitacoes table th, section.listaSolicitacoes table td {
+    border: 1px solid gray;
+    text-align: center;
+    padding: 6px;
+}
+
+section.listaSolicitacoes table td:last-child {
+    border: none;
+}
+
+section.listaSolicitacoes table button {
+    background-color: transparent;
+}
+
+section.listaSolicitacoes table  img {
+    width: 24px;
+    cursor: pointer;
+}
+
+section.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+section.modal > button {
+    position: relative;
+    top: 10px;
+    left: 98%;
+    background-color: transparent;
+}
+section.modal > button > img {
+    width: 28px;
+    cursor: pointer;
+}
+
+section.modal > section.editarSolicitacaoAluno {
+    position: relative;
+    top: -400px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    min-width: 400px;
+    max-width: 800px;
+    height: auto;
+    padding: 10px;
+    background-color: azure;
+    border-radius: 12px;
+    animation: abreModal 1.5s linear 200ms 1 both;
+    box-shadow: -4px 9px 6px 1px rgba(141, 141, 141, 0.99);
+}
+
+@keyframes abreModal {
+    0% {
+        top: -400px;
+        left: 50%;
+        transform: translateX(-50%);
+    } 100% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+section.modal > section.editarSolicitacaoAluno > section > p{
+    margin-bottom: 8px;
+}
+
+section.modal form  {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+section.modal form button {
+    width: 200px;
+    height: 26px;
+    margin: 8px auto;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+section.modal form input {
+    width: 200px;
+    height: 24px;
+    margin: 10px auto;
+    background-color: rgba(15, 13, 13, 0.2);
+}
+
+section.modal form button.botaoAprovar {
+    background-color: rgb(108, 177, 4);
+}
+
+section.modal form button.botaoReprovar {
+    background-color: red;
+}
+
+
+section.statusSolicitacao {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    min-width: 300px;
+    max-height: 600px;
+    height: 200px;
+    padding: 14px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: white;
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: abreTelaStatus 1s  500ms 1 both;
+    z-index: 3;
+}
+
+@keyframes abreTelaStatus {
+    0% {
+        top: -200px;
+        left: 50%;
+    } 100% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+section.statusSolicitacao img {
+    width: 80px;
+}
+
+section.statusSolicitacao p {
+    margin-top: 14px;
+    text-align: center;
+}
+
+section.statusSolicitacao button {
+    position: absolute;
+    right: 10px;    
+    top: 10px;
+    width: 30px;
+    height: 20px;
+    background-color: gray;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+section.sem_solicitacoes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 500px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.sem_solicitacoes > p{
+    font-size: 1.6em;
+    text-align: center;
+}
+
+section.sem_solicitacoes > img {
+    width: 100px;
+}

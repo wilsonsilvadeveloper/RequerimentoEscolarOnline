@@ -1,4 +1,4 @@
-function criaTelaStatusSolicitacao(imgStatus, textoStatus, diciplinasNaoAdicionadas){
+function criaTelaStatusSolicitacao(imgStatus, textoStatus, arquivoStatus){
     const elementoPai = document.querySelector('.statusSolicitacao');
     elementoPai.innerHTML = '';
 
@@ -10,11 +10,9 @@ function criaTelaStatusSolicitacao(imgStatus, textoStatus, diciplinasNaoAdiciona
     p.textContent = textoStatus;
     elementoPai.appendChild(p);
 
-    if(diciplinasNaoAdicionadas !== null && diciplinasNaoAdicionadas !== undefined) {
-        const pAlerta = document.createElement('p');
-        pAlerta.textContent = 'As disciplinas ' + diciplinasNaoAdicionadas.join(', ') + ' não foram adicionadas porque já estão em uma solicitação anterior em fase pendente ou aprovadas.';
-        elementoPai.appendChild(pAlerta);
-    }
+    const pAlerta = document.createElement('p');
+    pAlerta.textContent = arquivoStatus;
+    elementoPai.appendChild(pAlerta);
 
     const botaoFecharTela = document.createElement('button');
     botaoFecharTela.textContent = 'X'

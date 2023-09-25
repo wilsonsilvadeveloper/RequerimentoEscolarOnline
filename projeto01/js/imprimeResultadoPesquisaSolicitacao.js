@@ -1,5 +1,4 @@
 function imprimeSolicitacoes(solicitacoes){
-    console.log(solicitacoes);
     const table = document.querySelector('.tabelaSolicitacoes');
     table.innerHTML = '';
     // criando cabeçalho da tabela
@@ -16,9 +15,10 @@ function imprimeSolicitacoes(solicitacoes){
     const coluna5 = criaTh('Disciplina', tr);
     const coluna6 = criaTh('Professor(a)', tr);
     const coluna7 = criaTh('Data da avaliação', tr);
-    const coluna8 = criaTh('Data do Pedido', tr);
-    const coluna9 = criaTh('Status', tr);
-    const coluna10 = criaTh('Arquivo', tr);
+    const coluna8 = criaTh('Hora da avaliação', tr);
+    const coluna9 = criaTh('Local', tr);
+    const coluna10 = criaTh('Data do Pedido', tr);
+    const coluna11 = criaTh('Status', tr);
 
 
     thead.appendChild(tr);
@@ -30,7 +30,7 @@ function imprimeSolicitacoes(solicitacoes){
     solicitacoes.forEach(solicitacao => {
         const tbodyTr = document.createElement('tr');
         criaTd(solicitacao.id, solicitacao.nome_aluno, solicitacao.email_aluno, solicitacao.curso, solicitacao.turma,
-        solicitacao.nome_diciplina, solicitacao.nome_professor, solicitacao.data_avaliacao, solicitacao.data_pedido, solicitacao.status, solicitacao.arquivo, tbodyTr);
+        solicitacao.nome_diciplina, solicitacao.nome_professor, solicitacao.data_avaliacao, solicitacao.hora_avaliacao ,solicitacao.data_pedido, solicitacao.status, solicitacao.arquivo, solicitacao.campus, tbodyTr);
         tbody.appendChild(tbodyTr);
     });
 
@@ -44,7 +44,7 @@ function criaTh(nomeColuna, tr){
     tr.appendChild(criaTh);
 }
 
-function criaTd(id, nome_aluno, email, curso, turma, disciplina, professor, dataAvaliacao, dataPedido, status, Justificativa, tr){
+function criaTd(id, nome_aluno, email, curso, turma, disciplina, professor, dataAvaliacao, horaAvaliacao, dataPedido, status, Justificativa, campus, tr){
     const tdId = document.createElement('td');
     tdId.setAttribute('class', 'id');
     tdId.textContent = id;
@@ -86,6 +86,16 @@ function criaTd(id, nome_aluno, email, curso, turma, disciplina, professor, data
     tdDataAvaliacao.textContent = converteData(dataAvaliacao);
     tr.appendChild(tdDataAvaliacao);
 
+    const tdHoraAvalicao = document.createElement('td');
+    tdHoraAvalicao.setAttribute('class', 'horaAvaliacao');
+    tdHoraAvalicao.textContent = horaAvaliacao;
+    tr.appendChild(tdHoraAvalicao);
+
+    const tdCampus = document.createElement('td');
+    tdCampus.setAttribute('class', 'campus');
+    tdCampus.textContent = campus;
+    tr.appendChild(tdCampus);
+
     const tdDataPedido = document.createElement('td');
     tdDataPedido.setAttribute('class', 'dataPedido');
     const novaData = converteData(dataPedido);
@@ -97,34 +107,15 @@ function criaTd(id, nome_aluno, email, curso, turma, disciplina, professor, data
     tdStatus.textContent = status;
     tr.appendChild(tdStatus);
 
-    
-    const tdLink = document.createElement('td');
-    tdLink.setAttribute('class', 'link');
-    const linkArquivo = document.createElement('a');
-    if(Justificativa != null) {
-        let url = 'http://localhost/trabalho/RequerimentoEscolarOnline/projeto01/' + Justificativa;
-        var novaUrl = url.replace(/(\.\.\/)+/g, "");
-        linkArquivo.setAttribute('href', novaUrl)
-        linkArquivo.setAttribute('target', '_blank');
-        linkArquivo.textContent = "Abrir documento";
-    } else if (Justificativa == null) {
-        linkArquivo.textContent = "Sem Arquivo";
-    }
-    tdLink.appendChild(linkArquivo)
-    tr.appendChild(tdLink);
 
     const tdEditarInfoAluno = document.createElement('td');
     tdEditarInfoAluno.setAttribute('class', 'editar-info');
     const img = document.createElement('img');
-    img.setAttribute('src', '../../img/editar.png');
+    img.setAttribute('src', '../../img/procurar.png');
     tdEditarInfoAluno.appendChild(img);
-    if(status === 'Pendente' || status === null){
-        img.addEventListener('click', function(e){
-            modalInfoSolicitacao(e.target.parentNode.parentNode)
-        })
-    } else {
-        img.style.cursor = 'not-allowed';
-    }
+    img.addEventListener('click', function(e){
+        modalInfoAlunoSolicitacao(e.target.parentNode.parentNode)
+    })
     
     tr.appendChild(tdEditarInfoAluno);
 }

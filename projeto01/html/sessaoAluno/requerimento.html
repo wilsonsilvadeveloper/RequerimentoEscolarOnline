@@ -1,11 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solicitar Requerimento</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="../../css/sessaoAluno/requerimento.css" />
+  </head>
+  <body>
+    <header>
+      <h1>NOVA AVALIAÇÃO EM CASO DE FALTA JUSTIFICADA</h1>
+      <p>
+        Referência: Organização Didática do IFC - Resolução 10/2021 - Art 222
+      </p>
+    </header>
+
+    <main>
+      <form class="formRequerimento" enctype="multipart/form-data">
+        <fieldset class="grupo grupo1">
+          <legend>Dados do Requerente</legend>
+          <div class="dadosAluno">
+            <label for="nome" class="label">Nome completo</label>
+            <input
+              type="text"
+              name="nome"
+              class="input"
+              title="Nome completo"
+              required
+            />
+          </div>
+
+          <div class="dadosAluno">
+            <label for="email" class="label">E-mail</label>
+            <input required type="email" name="email" class="input" title="E-mail" />
+          </div>
+
+          <div class="dadosAluno">
+            <label for="curso" class="label">Curso</label>
+            <input required type="text" name="curso" class="input" title="curso" />
+          </div>
+
+          <div class="dadosAluno">
+            <label for="periodoLetivo" class="label"
+              >Ano/semestre de ingresso</label
+            >
+            <input
+              type="text"
+              name="periodoLetivo"
+              class="input"
+              title="semestre"
+              placeholder="Ex: 2ª ano"
+              required
+            />
+          </div>
+
+        </fieldset>
+
+        <fieldset class="grupo grupo2">
+          <div>
+            <div>
+                <p>Diciplina</p>
+            </div>
+            <div>
+                <input required type="text" title="diciplinaNome" class="input" name="nomeDisciplina">
+            </div>
+          </div>
+
+          <div>
+            <div>
+                <p>Nome do professor</p>
+            </div>
+            <div>
+                <input required type="text" title="Nome professor" class="input" name="nomeProfessor">
+            </div>
+          </div>
+          
+        </fieldset>
+
+        <fieldset class="grupo grupo3">
+          <legend>Justificativa</legend>
+
+          <div>
+            <div id="justivicativa">
+              <label for="descricaoJustificativa" class="label">Descreva abaixo o motivo da sua Solicitação!</label>
+              <textarea name="descricaoJustificativa" required title="Descreva a jua justificativa"></textarea>
+              <label for="justificativa" class="label">Envie algum documento (pdf) que comprove sua justificativa!</label>
+              <input type="file" accept=".pdf" title="enviar arquivo" name="justificativa">
+            </div>
+          </div>
+        </fieldset>
+
+        <button id="enviarSolicitacao" type="submit">Enviar Requerimento</button>
+        <br>
+        <p>OU</p>
+        <br>
+        <button type="button" id="pesquisarSolicitacao">Procurar Solicitação</button>
+      </form>
+
+      <section class="statusSolicitacao">
+      </section>
+    </main>
+    <script src="../../js/sessaoAluno/telaStatus.js"></script>
+    <script src="../../js/sessaoAluno/preparaSolicitacao.js"></script>
+    <script src="../../js/pesquisarSolicitacao.js"></script>
+  </body>
 </html>

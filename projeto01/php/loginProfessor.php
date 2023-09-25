@@ -9,22 +9,22 @@ try {
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $matricula = $_POST["matricula"];
+        $codProfessor = $_POST["codProfessor"];
         $senha = $_POST["senha"];
 
-        $sql = "SELECT * FROM login_aluno WHERE matricula = ? AND senha = ?";
+        $sql = "SELECT * FROM login_professor WHERE cod_professor = ? AND senha = ?";
         $stmt = $conexao->prepare($sql);
-        $stmt->bindParam(1, $matricula);
+        $stmt->bindParam(1, $codProfessor);
         $stmt->bindParam(2, $senha);
         $stmt->execute();
 
-        $aluno = $stmt->fetch(PDO::FETCH_ASSOC);
+        $professor = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($aluno) {
-            $url = "http://localhost/trabalho/RequerimentoEscolarOnline/projeto01/html/sessaoAluno/requerimento.html";
+        if ($professor) {
+            $url = "http://localhost/trabalho/RequerimentoEscolarOnline/projeto01/html/sessaoProfessor/professor.html";
             $aba = "window.open('$url', '_self')";
-            $aluno_json = json_encode($aba);
-            echo $aluno_json;
+            $professor_json = json_encode($aba);
+            echo $professor_json;
         }
     }
 } catch (PDOException $e) {
