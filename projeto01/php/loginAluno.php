@@ -19,13 +19,16 @@ try {
         $stmt->execute();
 
         $aluno = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        $response;
         if ($aluno) {
             $url = "http://localhost/trabalho/RequerimentoEscolarOnline/projeto01/html/sessaoAluno/requerimento.html";
             $aba = "window.open('$url', '_self')";
-            $aluno_json = json_encode($aba);
-            echo $aluno_json;
+            $response = ['status' => 'ok', 'aba' => $aba];
+        } else {
+            $response = ['status' => 'error', 'error' => 'Dados invalidos'];
         }
+
+        echo json_encode($response);
     }
 } catch (PDOException $e) {
     die("Conexão falhou: " . $e->getMessage());

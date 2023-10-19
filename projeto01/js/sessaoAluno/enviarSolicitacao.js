@@ -28,10 +28,12 @@ formRequerimento.addEventListener("submit", function (e) {
     const url = "http://localhost/trabalho/RequerimentoEscolarOnline/projeto01/php/enviarSolicitacao.php";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-
+    console.log(xhr.status);
     xhr.onreadystatechange = function () {
+      console.log(xhr.status);
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
+          console.log(xhr.status);
           const resposta = JSON.parse(xhr.responseText);
           console.log(resposta);
           if (resposta.status === "ok") {

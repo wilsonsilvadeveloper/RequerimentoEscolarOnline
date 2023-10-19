@@ -1,5 +1,8 @@
+let infoSolicitacao;
+
 function imprimeSolicitacoes(solicitacoes){
-    console.log(solicitacoes);
+    infoSolicitacao = solicitacoes;
+    console.log(infoSolicitacao);
     const table = document.querySelector('.tabelaSolicitacoes');
     table.innerHTML = '';
     // criando cabeçalho da tabela

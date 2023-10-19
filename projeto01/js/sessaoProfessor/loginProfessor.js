@@ -18,8 +18,11 @@ formProfessor.addEventListener("submit", (e)=> {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var response = JSON.parse(xhr.responseText);
-      console.log(response);
-      eval(response);
+      if(response.status == 'ok'){
+        eval(response.aba);
+      } else if(response.status == 'error'){
+        alert(response.error);
+      }
     }
   };
 

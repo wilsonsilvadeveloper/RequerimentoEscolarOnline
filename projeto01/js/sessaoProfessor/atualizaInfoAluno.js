@@ -60,6 +60,10 @@ function atualizaSolicitacao(resposta, dataAvaliacao, horaAvaliacao, id) {
 function modalInfoSolicitacao(solicitacao) {
   abreModal();
   const modal = document.querySelector(".modal > section > section");
+
+  const idAluno = solicitacao.querySelector(".id").textContent;
+  console.log(idAluno);
+
   const nome_aluno = (modal.querySelector("#nomeAluno").textContent =
     "Nome: " + solicitacao.querySelector(".nomeAluno").textContent);
   const email_aluno = (modal.querySelector("#emailAluno").textContent =
@@ -76,12 +80,16 @@ function modalInfoSolicitacao(solicitacao) {
     "#statusSolicitacao"
   ).textContent =
     "Status: " + solicitacao.querySelector(".status").textContent);
+  const buscaJustificativa = infoSolicitacao.find(aluno => aluno.id == idAluno);
+  const justificativaEncontrada = buscaJustificativa ? buscaJustificativa.justificativa: 'Justificativa não encontrada';
+  const Justificativa = modal.querySelector("#justificativa").textContent = "Justificativa: " + justificativaEncontrada;
+
   const data_solicitacao = (modal.querySelector(
     "#dataSolicitacao"
   ).textContent =
     "Data da Solicitação: " +
     solicitacao.querySelector(".dataPedido").textContent);
-
+  
   const form = document.querySelector(".modal form");
   form.innerHTML = "";
 
